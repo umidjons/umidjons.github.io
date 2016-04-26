@@ -1,20 +1,61 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="Site">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Umidjons GitHub Page</title>
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body ng-controller="HomeCtrl">
 
-<h1>Guides, Tips & Examples</h1>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/">Umid Almatov</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="#/">Home</a></li>
+                <li><a href="#/about">About Me</a></li>
+                <li><a href="#/contact">Contact</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="https://github.com/umidjons" target="_blank"><i class="fa fa-github"></i> GitHub</a>
+                </li>
+                <li>
+                    <a href="https://gist.github.com/umidjons" target="_blank">
+                        <i class="fa fa-github-alt"></i> Gists
+                    </a>
+                </li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
 
-<ul>
-    <li>
-        <a href="https://gist.github.com/umidjons/47f616867cf35592512e4c52a9259fc6" target="_blank">
-            Simple Microservice with Seneca and Express
-        </a>
-    </li>
-</ul>
+<div class="container content-container">
+
+    <div ng-view></div>
+
+</div>
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-route/angular-route.min.js"></script>
+<script src="js/scripts.js"></script>
 
 </body>
 </html>
