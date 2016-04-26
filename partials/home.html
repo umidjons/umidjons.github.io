@@ -2,6 +2,6 @@
 
 <ul>
     <li ng-repeat="gist in gists">
-        <a ng-href="gist.url" target="_blank">{{ gist.title }}</a>
+        <a href="{{ gist.html_url }}" target="_blank">{{ $index +1 }}. {{ gist.description }}</a>
     </li>
 </ul>
