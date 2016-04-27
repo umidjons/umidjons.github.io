@@ -1,4 +1,4 @@
-angular.module('Site', ['ngRoute'])
+angular.module('Site', ['ngRoute', 'angularUtils.directives.dirPagination'])
     .config(function ($routeProvider) {
         $routeProvider
             .when('/', {
@@ -21,6 +21,10 @@ angular.module('Site', ['ngRoute'])
         }
     })
     .controller('HomeCtrl', function ($scope, Gist) {
+        $scope.pagination = {
+            current: 1,
+            itemsPerPage: 20
+        };
         $scope.gists = [];
         Gist.query(function (resp) {
             $scope.gists = resp;

@@ -1,7 +1,9 @@
 <h1>Guides, Tips & Examples</h1>
 
-<ul>
-    <li ng-repeat="gist in gists">
-        <a href="{{ gist.html_url }}" target="_blank">{{ $index +1 }}. {{ gist.description }}</a>
+<ol start="{{1 + (pagination.current - 1) * pagination.itemsPerPage}}">
+    <li dir-paginate="gist in gists | itemsPerPage: pagination.itemsPerPage" current-page="pagination.current">
+        <a href="{{ gist.html_url }}" target="_blank">{{ gist.description }}</a>
     </li>
-</ul>
+</ol>
+
+<dir-pagination-controls></dir-pagination-controls>
