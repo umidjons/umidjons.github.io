@@ -13,8 +13,10 @@ body {
 
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:active,
+.navbar-default .navbar-nav > li > a:focus,
 .navbar-default .navbar-brand:hover,
-.navbar-default .navbar-brand:active {
+.navbar-default .navbar-brand:active,
+.navbar-default .navbar-brand:focus {
     color: #fff;
     transition: color 0.5s;
 }
