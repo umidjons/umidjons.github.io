@@ -1,9 +1,11 @@
-<h1>Guides, Tips & Examples</h1>
+<h1 class="page-title">Guides, Tips & Examples</h1>
 
-<ol start="{{1 + (pagination.current - 1) * pagination.itemsPerPage}}">
-    <li dir-paginate="gist in gists | itemsPerPage: pagination.itemsPerPage" current-page="pagination.current">
+<ul class="list-unstyled" start="{{1 + (pagination.current - 1) * pagination.itemsPerPage}}">
+    <li dir-paginate="gist in gists | itemsPerPage: pagination.itemsPerPage"
+        current-page="pagination.current"
+        class="gist-item">
         <a href="{{ gist.html_url }}" target="_blank">{{ gist.description }}</a>
     </li>
-</ol>
+</ul>
 
-<dir-pagination-controls></dir-pagination-controls>
+<dir-pagination-controls class="dir-pagination-controls"></dir-pagination-controls>
