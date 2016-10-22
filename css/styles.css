@@ -52,24 +52,31 @@ body {
     margin: 0;
 }
 
-.gist-item a {
+.gist-item > a {
     display: block;
     padding: 20px;
     background: #fff;
     color: #607D8B;
 }
 
-.gist-item a:focus {
+.gist-item > a:focus {
     text-decoration: none;
 }
 
-.gist-item a:hover, .gist-item a:active {
+.gist-item > a:hover, .gist-item > a:active {
     background: #f8f8ff;
     text-decoration: none;
     color: #E91E63;
     border-left: 3px solid;
     padding-left: 35px;
     transition: background-color 0.7s, color 0.7s, border-color 0.7s, padding-left 0.3s;
+}
+
+.gist-content {
+    background: #fff;
+    padding: 20px;
+    border-top: 2px dotted #eee;
+    border-bottom: 2px dotted #eee;
 }
 
 .dir-pagination-controls {

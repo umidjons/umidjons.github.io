@@ -4,7 +4,8 @@
     <li dir-paginate="gist in gists | itemsPerPage: pagination.itemsPerPage"
         current-page="pagination.current"
         class="gist-item">
-        <a href="{{ gist.html_url }}" target="_blank">{{ gist.description }}</a>
+        <a href="" ng-click="openContent(gist)" target="_blank">{{ gist.description }}</a>
+        <article ng-if="gist.show" class="gist-content" ng-bind-html="gist.html_secure"></article>
     </li>
 </ul>
 

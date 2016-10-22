@@ -1,4 +1,4 @@
-angular.module('Site', ['ngRoute', 'angularUtils.directives.dirPagination'])
+angular.module('Site', ['ngRoute', 'ngSanitize', 'angularUtils.directives.dirPagination'])
     .config(function ($routeProvider) {
         $routeProvider
             .when('/', {
@@ -16,19 +16,30 @@ angular.module('Site', ['ngRoute', 'angularUtils.directives.dirPagination'])
     .factory('Gist', function ($http) {
         return {
             query: function (callback) {
-                $http.get('/js/gists.json').success(callback);
+                $http.get('/js/gistsHtml.json').success(callback);
             }
         }
     })
-    .controller('HomeCtrl', function ($scope, Gist) {
+    .controller('HomeCtrl', function ($scope, $sce, Gist) {
         $scope.pagination = {
             current: 1,
-            itemsPerPage: 20
+            itemsPerPage: 10
         };
         $scope.gists = [];
         Gist.query(function (resp) {
             $scope.gists = resp;
         });
+
+        $scope.openContent = function (gist) {
+            $scope.gists.map(function (g) {
+                if (angular.equals(g, gist)) {
+                    gist.show = !gist.show;
+                    gist.html_secure = $sce.trustAsHtml(gist.html);
+                } else {
+                    g.show = false;
+                }
+            });
+        }
     })
     .controller('AboutCtrl', function ($scope) {
 
